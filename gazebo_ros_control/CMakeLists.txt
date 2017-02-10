@@ -7,7 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   control_toolbox
   controller_manager
-  hardware_interface 
+  hardware_interface
   transmission_interface
   pluginlib
   joint_limits_interface
@@ -15,8 +15,10 @@ find_package(catkin REQUIRED COMPONENTS
   angles
 )
 
-# Depend on system install of Gazebo 
-find_package(gazebo REQUIRED)
+# Depend on system install of Gazebo and SDFormat
+find_package(GAZEBO REQUIRED)
+find_package(SDFormat REQUIRED)
+find_package(Boost REQUIRED COMPONENTS thread)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
 catkin_package(
@@ -33,7 +35,7 @@ catkin_package(
     angles
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME} default_robot_hw_sim
-  DEPENDS gazebo
+  DEPENDS GAZEBO
 )
 
 link_directories(
@@ -67,4 +69,3 @@ install(DIRECTORY include/${PROJECT_NAME}/
 install(FILES robot_hw_sim_plugins.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   )
-
