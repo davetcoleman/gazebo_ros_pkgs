@@ -72,8 +72,4 @@ install(DIRECTORY include/${PROJECT_NAME}/
 
 install(FILES robot_hw_sim_plugins.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-<<<<<<< 464c8f85d6830ada0c898a4d993392802f3df117
 )
-=======
-  )
->>>>>>> Fix gazebo catkin warning
